@@ -1,0 +1,20 @@
+{
+    "operations":[
+        {
+            "name":"ADD",
+            "parameters":2
+        },
+        {
+            "name":"LIST",
+            "parameters":0
+        },
+        {
+            "name":"GET",
+            "parameters":1
+        },
+        {
+            "name":"REMOVE",
+            "parameters":1
+        }
+    ]
+}
