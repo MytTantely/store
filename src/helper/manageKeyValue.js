@@ -1,7 +1,7 @@
 const ManageStream = require('./manageStream');
 
-function add(){
-
+function add(key, val){
+    ManageStream.save(key, val);
 }
 
 function list(){
@@ -12,8 +12,8 @@ function get(key){
     ManageStream.find(key);
 }
 
-function remove(){
-
+function remove(key){
+    ManageStream.remove(key);
 }
 
 module.exports={add, list, get, remove}
