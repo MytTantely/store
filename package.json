@@ -1,6 +1,7 @@
 {
   "name": "store",
   "version": "1.0.0",
+  "bin": "./src/app.js",
   "description": "Challenge One - Node.js",
   "main": "./src/app.js",
   "scripts": {

@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const ManageStream = require('./helper/manageStream');
 const AppError = require('./exception/AppError');
 
