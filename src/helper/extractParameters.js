@@ -1,4 +1,7 @@
-const listOps = require('../../config/conf.json').operations;
+/**
+ * This is a set of function to handle the arguments and validate them.
+ */
+const listOps = require('../../config/conf.json').operations;// Allow to validate the operation allowed and the parameters expected.
 const AppError = require('./../exception/AppError');
 
 function extract(argvs){
@@ -34,7 +37,8 @@ function getOp(args){
 
 function setParams(op, args){
     for(let i = 1; i <= op.parameters; i++){
-        let val = "val" + i ;
+        let val = "value";
+        if(i===1) val = "key";
         op[val] = args[2 + i];
     }
 }

@@ -1,3 +1,8 @@
+/**
+ * These are the main operation allowed, 
+ * The implementation may be different, that s why I used this layer, we can use DB, Rest API to CRUD
+ * In this example I used a file with stream.  
+ */
 const ManageStream = require('./manageStream');
 
 function add(key, val){

@@ -15,7 +15,7 @@ function run(){
 
         switch(op.name) {
             case 'ADD':
-                Tools.add(op.val1, op.val2);
+                Tools.add(op.key, op.value);
                 break;  
             
             case 'LIST':
@@ -23,11 +23,11 @@ function run(){
                 break;
 
             case 'GET':
-                Tools.get(op.val1);
+                Tools.get(op.key);
                 break;
 
             case 'REMOVE':
-                Tools.remove(op.val1);
+                Tools.remove(op.key);
                 break;
             
             default:

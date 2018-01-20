@@ -1,3 +1,6 @@
+/**
+ * This class help us to define the exception we handle, Vs not expected
+ */
 module.exports = class AppError extends Error {
     constructor (message) {
     
