@@ -6,6 +6,7 @@ const Tools = require('./helper/manageKeyValue');
 
 run();
 
+// Main Entry Point.
 function run(){
     try{
         let op = extract(process.argv);
@@ -34,7 +35,7 @@ function run(){
         if (err instanceof AppError) {
             console.error(err.message);
         } else {
-            console.error('Unknown error', err.message);
+            console.error('Unknown error', err);
         }
     }
 }

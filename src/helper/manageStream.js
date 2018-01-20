@@ -2,35 +2,41 @@ const fs = require('fs');
 const path = './data/data_kv.json';
 const AppError = require('./../exception/AppError');
 
+function write(data){
+  let wstream = fs.createWriteStream(path);
+  wstream.write(data);
+  wstream.end();
+}
+
 // Print the file
 function read(){
   let readStream = fs.createReadStream(path);
   readStream.pipe(process.stdout);
 }
 
-// Find a key
+// Find a key.
 function find(key){
-  console.debug(`Start searching the Key "${key}"` );
-  let readStream = fs.createReadStream(path);
-  readStream
-  .on('data', function (chunk) {
-    let jsonData = JSON.parse(chunk);
+    console.debug(`Start searching the Key "${key}"` );
 
-    let value = jsonData[key];
-    
-    if(value !== undefined){
-      console.log(`{"${key}":${value}}`);
-      readStream.destroy();
-    }
-    
-  })
-  .on('end', function () {
-    throw new AppError(`Missing key: "${key}". The value is not retrieved!`);
-  })
-  .on('close', function (err) {
-    console.debug('Stream has been destroyed and file has been closed');
-  });
+    let readStream = fs.createReadStream(path);
+    let buffers = [];
+    readStream
+    .on('data', (chunk)=>{
+        buffers.push(chunk);
+      }
+    )
+
+    .on('end', () => {
+      let jsonData = JSON.parse(Buffer.concat(buffers).toString());
+      let value = jsonData[key];
+
+      if(value !== undefined){
+        console.log(`{"${key}":${value}}`);
+      }else{
+        throw new AppError(`Missing key: "${key}". Please add it first!`);
+      }
+    });
 }
 
-module.exports = {read, find}
+module.exports = {write, read, find}
 
